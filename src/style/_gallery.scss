@@ -1,0 +1,80 @@
+a{
+    text-decoration: none;
+}
+
+.imagen {
+    cursor: pointer;
+    width: 200px;
+    height: 120px;
+    transition-duration: .2s;
+    position:relative;
+    overflow: hidden;
+    margin: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+    display: inline-block;
+
+    img{
+        width: 200px;
+        height: 120px;
+        transition-duration: .5s;
+    }
+
+    #testo{
+        position: absolute;
+        background-color: rgba(232, 76, 61, 0.7);
+        width: 200px;
+        height: 50px;
+        padding-left: 0px;
+        margin-top: 120px;
+        font-family: Tahoma;
+        font-size: small;
+        color:white;
+        transition-duration: .5s;
+    }
+
+    &:hover #testo{
+        margin-top: 90px;
+        transition-duration: .5s;
+    }
+}
+
+#nombrepaper{
+    height: 20px;
+    width: 140px;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+    text-align: left;
+}
+
+#cantidad{
+    height: 20px;
+    width: 50px;
+    float: right;
+    margin-top: 5px;
+
+    img{
+        margin-left: 3px;
+        margin-right: -5px;
+    }
+}
+
+#gallery{
+    margin: 0px auto;
+    margin-bottom: 50px;
+    max-width: 90%;
+    text-align:center !important;
+    min-height: 600px;
+    overflow: auto;
+}
+
+#loading{
+    margin-left: calc(50% - 75px);
+    width: 150px;
+}
+
+footer{
+    background-color: #e74c3c;
+    color: #FFFFFF;
+}

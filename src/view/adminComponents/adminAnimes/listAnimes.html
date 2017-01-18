@@ -1,0 +1,53 @@
+<h1>Listado de Animes</h1>
+<button ng-click="adAn.openCreatePanel()">Nuevo</button>
+<br><br>
+<div id="previewImage">
+    <img src="/cubefusion/CubeFusionPapertoysWeb/images/animes/angelbeats.jpg"/>
+</div>
+
+<button class="glyphicon glyphicon-arrow-left"  ng-click="adAn.previosPage()"></button>
+<button class="glyphicon glyphicon-arrow-right"  ng-click="adAn.nextPage()"></button>
+
+<p></p>
+
+<table ng-show="adAn.animeList.length > 0">
+    <thead>
+        <tr>
+            <th ng-click="adAn.changeOrder('id')" class="ordenableTh">
+                Id
+                <span class="glyphicon glyphicon-chevron-up" ng-show="adAn.orderColumn == 'id'"  aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-chevron-down" ng-show="adAn.orderColumn == '-id'"  aria-hidden="true"></span>
+            </th>
+            <th ng-click="adAn.changeOrder('name')" class="ordenableTh">
+                Nombre
+                <span class="glyphicon glyphicon-chevron-up" ng-show="adAn.orderColumn == 'name'"  aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-chevron-down" ng-show="adAn.orderColumn == '-name'"  aria-hidden="true"></span>
+            </th>
+            <th>
+                Imagen
+            </th>
+            <th ng-click="adAn.changeOrder('paperCount')" class="ordenableTh">
+                Papertoys
+                <span class="glyphicon glyphicon-chevron-up" ng-show="adAn.orderColumn == 'paperCount'"  aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-chevron-down" ng-show="adAn.orderColumn == '-paperCount'"  aria-hidden="true"></span>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="anime in adAn.animeList">
+            <td>{{anime.id}}</td>
+            <td>{{anime.name}}</td>
+            <td>
+                <img style="height:50px;" src="{{adAn.imageRoute}}{{anime.imageName}}.jpg"/>
+            </td>
+            <td>{{anime.paperCount}}</td>
+            <td>
+                <button class="glyphicon glyphicon-eye-open" ng-click="adAn.openReadPanel(anime)"></button>
+                <button class="glyphicon glyphicon-pencil" ng-click="adAn.openUpdatePanel(anime)"></button>
+                <button class="glyphicon glyphicon-erase" ng-click="adAn.deleteAnime(anime)"></button>
+                <button class="glyphicon glyphicon-th-large" ng-click=""></button> <!-- ver papertoys de este anime -->
+            </td>
+        </tr>
+    </tbody>
+</table>

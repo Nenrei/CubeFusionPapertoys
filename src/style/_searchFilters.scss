@@ -1,0 +1,96 @@
+#letterMenu {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: Raleway, sans-serif;
+    padding-bottom: 5px;
+}
+
+#letterMenu div{
+    margin: 0px auto;
+    max-width: 846px;
+    text-align:center !important;
+}
+
+#letterMenu button{
+    border: none;
+    width: 30px;
+    height: 45px;
+    font-size: 15px;
+    border-bottom: 3px solid #e74c3c;
+    margin: 0px auto;
+    margin-left: -2px;
+    margin-right: -3px;
+}
+
+#letterMenu #all{
+    width: 50px;
+}
+
+#letterMenu button:focus{
+    outline:0px;
+}
+
+#letterMenu button:hover{
+    background: #e74c3c;
+    color: #FFF;
+    cursor: pointer;
+}
+
+#letterMenu button:active{
+    background: #e74c3c;
+    color: #FFF;
+    border-bottom: 3px solid #e74c3c;
+}
+
+.active{
+    background: #e74c3c;
+    color: #ffffff;
+}
+
+.inactive{
+    background: #fff;
+    color: #444444;
+}
+
+#searchField{
+    margin: auto;
+    max-width: 500px;
+    margin-bottom: 20px;
+    pagging-left: 20px;
+    pagging-right: 20px;
+    display: flex;
+    font-family: Raleway, sans-serif;
+}
+
+#searchField input{
+    width: 85%;
+    text-align: center;
+    height: 20px;
+    margin-top: 5px;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+}
+
+#searchField input:hover{
+    border: 1px solid #8c160a;
+    color: #8c160a;
+}
+
+#searchField input:focus{
+     outline:0px;
+}
+
+#back{
+    height: 30px;
+    width: 15%;
+    margin-right: 10px;
+    margin-top:-1px;
+    border: none;
+    background: none;
+    font-size: x-large;
+    color: #e74c3c;
+}
+
+#back:hover{
+    color: #8c160a;
+}

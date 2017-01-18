@@ -1,0 +1,18 @@
+<div ng-controller="animeCtrl as an">
+
+    <ng-include src="'view/component/popupModel.html'"></ng-include>
+
+    <ng-include src="'view/component/lettersMenu.html'"></ng-include>
+
+    <img src="{{an.service.route}}/cube.gif" ng-show="an.loading" id="loading">
+
+    <div id="gallery" ng-hide="an.papertoyList.length > 0 || an.loading">
+        <ng-include src="'view/component/anime.html'" ng-repeat = "a in an.animeList | orderBy:'name'"></ng-include>
+    </div>
+
+
+    <div id="fichas" ng-show="an.papertoyList.length > 0 || an.loading">
+        <ng-include src="'view/component/papertoy.html'" ng-repeat = "p in an.papertoyList | orderBy:['name', 'order']"></ng-include>
+    </div>
+
+</div>	

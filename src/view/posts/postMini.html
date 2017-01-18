@@ -1,0 +1,31 @@
+<div id="postMini">
+
+    <div id="column1">
+        <img src="{{p.image}}">
+        <div id="postData">
+            <div id="data1">
+                <div id="autor"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>{{p.autor}}</div>
+                <div id="category"><i class="glyphicon glyphicon-list" aria-hidden="true"></i>{{p.category}}</div>
+            </div>
+            <div id="data2">
+                <div id="creationDate"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i>{{p.creationDate | date : 'dd/MM/yyyy'}}</div>
+                <div id="comments"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>3</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="line"></div>
+
+    <div id="column2">
+        <h4>
+            {{p.title}}
+        </h4>
+        <p>
+            {{p.shortText}}
+        </p>
+    </div>
+
+
+
+
+</div>

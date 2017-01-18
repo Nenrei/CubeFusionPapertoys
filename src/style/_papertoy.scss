@@ -1,0 +1,114 @@
+#fichas {
+    overflow: hidden;
+    margin: 0px auto;
+    text-align: center;
+    max-width: 90%;
+    min-height: 600px;
+}
+
+#ficha {
+    margin: 20px;
+    width: 150px;
+    display: inline-block;
+    text-align: left;
+}
+
+#paperInfo {
+    background-color: #e84c3d;
+    height: 40px;
+    font-family: Raleway;
+    color: white;
+    padding-left: 5px;
+}
+
+#botonera {
+    background-color: #e84c3d;
+    height: 40px;
+    overflow: hidden;
+    text-align: center;
+}
+
+#imagenFicha {
+    width: 150px;
+    height: 150px;
+}
+
+
+#nombreFicha {
+    font-size: medium;
+    margin: 0px;
+}
+
+#estadoFicha {
+    font-size: small;
+    margin: 0px;
+}
+
+#follas {
+    float: right;
+    margin-right: 3px;
+    margin-top: -3px;
+}
+
+#folla {
+    height: 15px;
+}
+
+#botonera button{
+    cursor: pointer;
+    background-color: #e84c3d;
+    border: none;
+    height: 23px;
+    width: 45%;
+    box-shadow: 2px 2px 5px 0px rgba(122,46,39,1);
+    color: #FFF;
+    margin-top: 10px;
+    font-family: Raleway;
+}
+
+#botonera button:active{
+    box-shadow: 1px 1px 2px 0px rgba(122,46,39,1);
+}
+
+#botonera button:hover{
+    background-color: #DD4132;
+}
+
+#botonera button:focus{
+    outline:0px;
+}
+
+
+#popupModel{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0,0,0,0.3);
+    z-index: 1001;
+}
+#popupModel #model{
+    position: fixed;
+    top: 25%;
+    left: 40%;
+    padding: 16px;
+    background-color: white;
+    z-index: 1002;
+    min-width: 300px;
+    overflow: auto;
+}
+
+#popupModel #model img {
+    height: 250px;
+    margin: 0px auto;
+}
+
+
+#popupModel #model #close {
+    font-size: xx-large;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    float: right;
+}
