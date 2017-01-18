@@ -4,7 +4,5 @@
 
 angular.module("myApp").controller("cabCtrl", function(){
     var cab = this;
-
-
-
+    
 });

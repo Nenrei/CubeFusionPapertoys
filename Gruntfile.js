@@ -53,16 +53,6 @@ module.exports = function(grunt) {
 					{expand: true, cwd:'src/', src: ['index.html'], dest: 'dist/'}
 				]
 			},
-			repo: {
-				files: [
-					{expand: true, cwd:'src/js/', src: ['**/*.js'], dest: 'CubeFusionPapertoys/js/'},
-					{expand: true, cwd:'src/style/', src: ['**'], dest: 'CubeFusionPapertoys/style/'},
-					{expand: true, cwd:'src/images/', src: ['**'], dest: 'CubeFusionPapertoys/images/'},
-					{expand: true, cwd:'src/view/', src: ['**'], dest: 'CubeFusionPapertoys/view/'},
-					{expand: true, cwd:'src/database/', src: ['**'], dest: 'CubeFusionPapertoys/database/'},
-					{expand: true, cwd:'src/', src: ['index.html'], dest: 'CubeFusionPapertoys/'}
-				]
-			},
 			style: {
 				files: [
 					{expand: true, cwd:'src/style/', src: ['**'], dest: 'CubeFusionPapertoys/style/'},
@@ -86,6 +76,11 @@ module.exports = function(grunt) {
 				runInBackground: false,
 				openBrowser : true
 			}
+		},
+
+		watch: {
+		    files: ['src/**/*.html'],
+		    tasks: ['dev']
 		}
 	});
 	
@@ -95,11 +90,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-http-server');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('dev', ['clean:dev', 'concat', 'sass', 'copy:dev', 'clean:allpost']);
 	grunt.registerTask('dist', ['clean:all', 'concat', 'uglify', 'sass', 'copy:all', 'clean:allpost']);
-
-	grunt.registerTask('repo', ['clean:all', 'sass', 'copy:repo', 'clean:allpost']);
 
 	// TODO Implement scripts for testing
 

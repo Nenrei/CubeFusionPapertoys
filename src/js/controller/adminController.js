@@ -8,6 +8,7 @@ angular.module("myApp").controller("adminController", function(service){
 
     me.service = service;
 
+
     me.imageRoute = me.service.routes.animeImages;
 
     me.currentView = 'view/adminComponents/adminAnimes/adminAnimes.html';

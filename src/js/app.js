@@ -15,6 +15,7 @@ angular.module("myApp").directive('errSrc', function() {
     }
 });
 
+
 angular.module("myApp").config(function($routeProvider) {
 
     $routeProvider
@@ -45,6 +46,9 @@ angular.module("myApp").config(function($routeProvider) {
         .otherwise({
             redirectTo: '/'
         });
+        if(false){
+
+        }
 
     //$routeProvider
     //    .when('/papertoys', {
