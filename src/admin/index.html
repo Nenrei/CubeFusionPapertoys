@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Panel de Administracion</title>
+
+	</head>
+	<body ng-app="appAdmin">
+
+		<header>
+
+		<div id="adminPanel" ng-controller="adminController as admin">
+
+		    <div id="adminMenu">
+		        <ul>
+		            <li><a href="#/animes">Animes</a></li>
+		            <li><a href="#/papertoys">Papertoys</a></li>
+
+		            <li><a href="#/users">Usuarios</a></li>
+		        </ul>
+		    </div>
+
+		</div>
+		   
+		</header>
+
+		<div id="adminContent">
+			<div ng-view></div>
+    	</div>
+
+		<footer>
+			
+		</footer>
+
+
+		<link href="http://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+		<link href="style/adminPanel.css" rel="stylesheet" type="text/css">
+		<link href="../style/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<script src="../js/vendor/angular-1.5.7/angular.min.js"></script>
+		<script src="../js/vendor/angular-1.5.7/angular-route.min.js"></script>
+
+		<script src="js/cubefusion.min.js"></script>
+
+		<script src="../js/vendor/autocomplete.js"></script>
+
+	</body>
+</html>		

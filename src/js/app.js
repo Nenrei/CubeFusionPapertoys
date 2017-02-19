@@ -1,63 +1,40 @@
 //myApp
 
-angular.module("myApp",['ngRoute','autocomplete','textAngular']);
-
-
-angular.module("myApp").directive('errSrc', function() {
-    return {
-        link: function(scope, element, attrs) {
-            element.bind('error', function() {
-                if (attrs.src != attrs.errSrc) {
-                    attrs.$set('src', attrs.errSrc);
-                }
-            });
-        }
-    }
-});
+angular.module("myApp",['ngRoute','autocomplete']);
 
 
 angular.module("myApp").config(function($routeProvider) {
 
     $routeProvider
         .when('/', {
-            templateUrl	: 'view/main.html',
-            controller 	: 'mainController'
+            templateUrl	: 'view/info.html',
+            controller 	: 'infoController'
         })
         .when('/papertoys', {
             templateUrl	: 'view/papertoys.html',
             controller 	: 'animeCtrl'
         })
-        .when('/acerca', {
+        .when('/nosotros', {
             templateUrl : 'view/about.html',
-            controller 	: 'aboutController'
+            controller 	: 'aboutController' 
         })
         .when('/contacto', {
             templateUrl : 'view/contact.html',
             controller 	: 'contactController'
         })
-        .when('/admin', {
-            templateUrl : 'view/admin.html',
-            controller 	: 'adminController'
-        })
-        .when('/info', {
-            templateUrl : 'view/info.html',
-            controller 	: 'infoController'
-        })
         .otherwise({
             redirectTo: '/'
         });
-        if(false){
-
-        }
-
-    //$routeProvider
-    //    .when('/papertoys', {
-    //        templateUrl	: 'view/papertoys.html',
-    //        controller 	: 'animeCtrl'
-    //    })
-    //    .otherwise({
-    //        redirectTo: '/papertoys'
-    //    });
+/*
+    $routeProvider
+        .when('/papertoys', {
+            templateUrl	: 'view/papertoys.html',
+            controller 	: 'animeCtrl'
+        })
+        .otherwise({
+            redirectTo: '/papertoys'
+        });
+*/
 });
 
 angular.module("myApp").controller('aboutController', function($scope) {
