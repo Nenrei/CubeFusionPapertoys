@@ -56,19 +56,20 @@
     margin: auto;
     max-width: 500px;
     margin-bottom: 20px;
-    pagging-left: 20px;
-    pagging-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     font-family: Raleway, sans-serif;
 }
 
 #searchField input{
-    width: 85%;
+    width: 100%;
     text-align: center;
     height: 20px;
-    margin-top: 5px;
     border: 1px solid #e74c3c;
     color: #e74c3c;
+	margin: 0px auto;
+    margin-top: 5px;
 }
 
 #searchField input:hover{
@@ -81,9 +82,7 @@
 }
 
 #back{
-    height: 30px;
-    width: 15%;
-    margin-right: 10px;
+    width: 50px;
     margin-top:-1px;
     border: none;
     background: none;
