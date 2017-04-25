@@ -7,14 +7,14 @@
 }
 
 #ficha {
-    margin: 20px;
+    margin: 5px;
     width: 150px;
     display: inline-block;
     text-align: left;
-}
+} 
 
 #paperInfo {
-    background-color: #e84c3d;
+    background-color: #FF5555;
     height: 40px;
     font-family: Raleway;
     color: white;
@@ -22,7 +22,7 @@
 }
 
 #botonera {
-    background-color: #e84c3d;
+    background-color: #FF5555;
     height: 40px;
     overflow: hidden;
     text-align: center;
@@ -56,7 +56,7 @@
 
 #botonera button{
     cursor: pointer;
-    background-color: #e84c3d;
+    background-color: #FF5555;
     border: none;
     height: 23px;
     width: 45%;
@@ -64,6 +64,8 @@
     color: #FFF;
     margin-top: 10px;
     font-family: Raleway;
+    padding: 0px;
+    transition-duration: .5s;
 }
 
 #botonera button:active{
@@ -71,7 +73,8 @@
 }
 
 #botonera button:hover{
-    background-color: #DD4132;
+    background-color: #ff8e8e;
+    transition-duration: .5s;
 }
 
 #botonera button:focus{
@@ -82,29 +85,37 @@
 
 #popupModel {
     position: fixed;
-    margin-top:-18px;
+    top: 0px;
     background-color: rgba(0,0,0,.5);
     z-index: 2;
     overflow: auto;
     height: 100%;
     width: 100%;    
+
+    img {
+        width: 200px;
+        top: 35%;
+        left: calc(50% - 100px);
+        background: white;
+        position: fixed;
+    }
+
+    #close {
+        font-size: xx-large;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        z-index: 3;
+        top: 35%;
+        left: calc(50% - 100px);
+    }
 }
 
-#popupModel  img {
-    height: 250px;
-    margin-top: 10%;
-    margin-left: calc(50% - 125px);
-    background-color: #fff;
-}
+@media only screen and (max-width: 768px){
 
+    #ficha {
+        margin: 1px;
+    } 
 
-#popupModel  #close {
-    font-size: xx-large;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    z-index: 3;
-    margin-top: 10%;
-    margin-left: calc(50% - 125px);
 }

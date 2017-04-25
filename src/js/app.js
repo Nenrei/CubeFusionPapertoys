@@ -1,31 +1,10 @@
 //myApp
 
-angular.module("myApp",['ngRoute','autocomplete']);
+angular.module("myApp",['ngRoute']);
 
 
-angular.module("myApp").config(function($routeProvider) {
-/*
-    $routeProvider
-        .when('/', {
-            templateUrl	: 'view/info.html',
-            controller 	: 'infoController'
-        })
-        .when('/papertoys', {
-            templateUrl	: 'view/papertoys.html',
-            controller 	: 'animeCtrl'
-        })
-        .when('/nosotros', {
-            templateUrl : 'view/about.html',
-            controller 	: 'aboutController' 
-        })
-        .when('/contacto', {
-            templateUrl : 'view/contact.html',
-            controller 	: 'contactController'
-        })
-        .otherwise({
-            redirectTo: '/'
-        });
-*/
+angular.module("myApp").config(function($routeProvider, $locationProvider) {
+
     $routeProvider
         .when('/papertoys', {
             templateUrl	: 'view/papertoys.html',
@@ -35,25 +14,20 @@ angular.module("myApp").config(function($routeProvider) {
             redirectTo: '/papertoys'
         });
 
-});
+        $locationProvider.html5Mode(true);
 
-angular.module("myApp").controller('aboutController', function($scope) {
-    $scope.message = 'Esta es la página "Acerca de"';
-});
-
-angular.module("myApp").controller('infoController', function($scope) {
-    $scope.message = 'Esta es la página "Información"';
-});
-
-angular.module("myApp").controller('contactController', function($scope) {
-    $scope.message = 'Esta es la página de "Contacto", aquí podemos poner un formulario';
 });
 
 
 angular.module("myApp").factory("service", function(){
 
     var ret = function(){};
-    
+
+    ret.loggedUser = {};
+    ret.name = "";
+    ret.password = "";
+
+    //ret.route = "/Proyectos/CubeFusionPapertoys/dist/images/";
     ret.route = "/images/";
 
     ret.routes = {

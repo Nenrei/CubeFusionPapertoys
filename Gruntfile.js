@@ -7,12 +7,8 @@ module.exports = function(grunt) {
 				separator: ';\n'
 			},
 			all: {
-				src: ['src/js/**/*.js'],
+				src: ['src/js/app.js','src/js/controller/*.js'],
 				dest: 'src/js/<%= pkg.name %>.min.js'
-			},
-			admin: {
-				src: ['src/admin/js/**/*.js'],
-				dest: 'src/admin/js/<%= pkg.name %>.min.js'
 			}
 		},
 
@@ -45,12 +41,7 @@ module.exports = function(grunt) {
 					{expand: true, cwd:'src/images/', src: ['**'], dest: 'dist/images/'},
 					{expand: true, cwd:'src/view/', src: ['**'], dest: 'dist/view/'},
 					{expand: true, cwd:'src/database/', src: ['**'], dest: 'dist/database/'},
-					{expand: true, cwd:'src/', src: ['index.html'], dest: 'dist/'},
-
-					{expand: true, cwd:'src/admin/js/', src: ['**/*.js'], dest: 'dist/admin/js'},
-					{expand: true, cwd:'src/admin/style/', src: ['**'], dest: 'dist/admin/style/'},
-					{expand: true, cwd:'src/admin/view/', src: ['**'], dest: 'dist/admin/view/'},
-					{expand: true, cwd:'src/admin/', src: ['index.html'], dest: 'dist/admin/'}
+					{expand: true, cwd:'src/', src: ['index.html'], dest: 'dist/'}
 				]
 			},
 			dev: {
@@ -59,18 +50,12 @@ module.exports = function(grunt) {
 					{expand: true, cwd:'src/style/', src: ['**'], dest: 'dist/style/'},
 					{expand: true, cwd:'src/view/', src: ['**'], dest: 'dist/view/'},
 					{expand: true, cwd:'src/database/', src: ['**'], dest: 'dist/database/'},
-					{expand: true, cwd:'src/admin/', src: ['**'], dest: 'dist/admin/'},
-					{expand: true, cwd:'src/', src: ['index.html'], dest: 'dist/'},
-
-					{expand: true, cwd:'src/admin/js/', src: ['**/*.js'], dest: 'dist/admin/js'},
-					{expand: true, cwd:'src/admin/style/', src: ['**'], dest: 'dist/admin/style/'},
-					{expand: true, cwd:'src/admin/view/', src: ['**'], dest: 'dist/admin/view/'},
-					{expand: true, cwd:'src/admin/', src: ['index.html'], dest: 'dist/admin/'}
+					{expand: true, cwd:'src/', src: ['index.html'], dest: 'dist/'}
 				]
 			},
 			style: {
 				files: [
-					{expand: true, cwd:'src/style/', src: ['**'], dest: 'CubeFusionPapertoys/style/'}
+					{expand: true, cwd:'src/style/', src: ['**'], dest: 'dist/style/'}
 				]
 			}
 		},
@@ -78,8 +63,8 @@ module.exports = function(grunt) {
 		clean: {
 			all: ['dist/*'],
 			dev: ['dist/database/*','dist/js/*','dist/style/*','dist/view/*','dist/index.html'],
-			allpost: ['src/style/mainStyle.css', 'src/js/<%= pkg.name %>.min.js', 'src/admin/js/<%= pkg.name %>.min.js'],
-			commitpre: ['src/js/<%= pkg.name %>.min.js', 'src/style/mainStyle.css.map']
+			allpost: ['src/style/mainStyle.css', 'src/js/<%= pkg.name %>.min.js'],
+			style:['dist/style/*']
 		},
 		
 		'http-server': {
@@ -99,13 +84,7 @@ module.exports = function(grunt) {
 		    	'src/style/*.scss',
 		    	'src/database/**/*.php',
 		    	'src/js/app.js',
-		    	'src/js/controller/**/*.js',
-
-		    	'src/admin/index.html',
-		    	'src/admin/view/**/*.html',
-		    	'src/admin/style/*.css',
-		    	'src/admin/js/app.js',
-		    	'src/admin/js/controller/**/*.js'
+		    	'src/js/controller/**/*.js'
 		    ],
 		    tasks: ['dev']
 		}
@@ -119,14 +98,16 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-http-server');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('dev', ['clean:dev', 'concat:all','concat:admin', 'sass', 'copy:dev', 'clean:allpost']);
-	grunt.registerTask('dist', ['clean:all', 'concat:all','concat:admin', 'uglify', 'sass', 'copy:all', 'clean:allpost']);
+	grunt.registerTask('dev', ['clean:dev', 'concat:all', 'sass', 'copy:dev', 'clean:allpost']);
+	grunt.registerTask('dist', ['clean:all', 'concat:all', 'uglify', 'sass', 'copy:all', 'clean:allpost']);
+
+	grunt.registerTask('styles', ['clean:style', 'sass', 'copy:style']);
 
 	// TODO Implement scripts for testing
 
 	grunt.registerTask('start-server', ['http-server']);
 
-	grunt.registerTask('prepare-commit', ['clean']);
+	grunt.registerTask('prepare-commit', ['clean:all']);
 
 	grunt.registerTask('default', ['dist']);
 };

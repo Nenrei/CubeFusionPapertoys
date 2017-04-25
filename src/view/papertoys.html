@@ -4,15 +4,25 @@
 
     <ng-include src="'view/component/lettersMenu.html'"></ng-include>
 
-    <img src="{{an.service.route}}/cube.gif" ng-show="an.loading" id="loading">
+    <div id="loading" ng-show="an.loading">
+        <img src="{{an.service.route}}/cube.gif">
+    </div>
 
-    <div id="gallery" ng-hide="an.papertoyList.length > 0 || an.loading">
+    <div id="gallery" ng-hide="an.papertoyList.length > 0 || an.loading || an.mostDownloadedList.length > 0 || an.newestList.length > 0">
         <ng-include src="'view/component/anime.html'" ng-repeat = "a in an.animeList | orderBy:'name'"></ng-include>
     </div>
 
 
-    <div id="fichas" ng-show="an.papertoyList.length > 0 || an.loading">
+    <div id="fichas" ng-show="an.papertoyList.length > 0 && !an.loading && an.mostDownloadedList.length == 0 && an.newestList.length == 0">
         <ng-include src="'view/component/papertoy.html'" ng-repeat = "p in an.papertoyList | orderBy:['name', 'order']"></ng-include>
+    </div>
+
+    <div id="fichas" ng-show="an.mostDownloadedList.length > 0 && !an.loading">
+        <ng-include src="'view/component/papertoy.html'" ng-repeat = "p in an.mostDownloadedList"></ng-include>
+    </div>
+
+    <div id="fichas" ng-show="an.newestList.length > 0 && !an.loading">
+        <ng-include src="'view/component/papertoy.html'" ng-repeat = "p in an.newestList"></ng-include>
     </div>
 
 </div>	

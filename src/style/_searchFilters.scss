@@ -16,10 +16,11 @@
     width: 30px;
     height: 45px;
     font-size: 15px;
-    border-bottom: 3px solid #e74c3c;
+    border-bottom: 3px solid #FF5555;
     margin: 0px auto;
     margin-left: -2px;
     margin-right: -3px;
+    transition-duration: .5s;
 }
 
 #letterMenu #all{
@@ -31,19 +32,20 @@
 }
 
 #letterMenu button:hover{
-    background: #e74c3c;
+    background: #ff8e8e;
     color: #FFF;
     cursor: pointer;
+    transition-duration: .5s;
 }
 
 #letterMenu button:active{
-    background: #e74c3c;
+    background: #FF5555;
     color: #FFF;
-    border-bottom: 3px solid #e74c3c;
+    border-bottom: 3px solid #FF5555;
 }
 
 .active{
-    background: #e74c3c;
+    background: #FF5555;
     color: #ffffff;
 }
 
@@ -55,42 +57,71 @@
 #searchField{
     margin: auto;
     max-width: 500px;
-    margin-bottom: 20px;
-    pagging-left: 20px;
-    pagging-right: 20px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     font-family: Raleway, sans-serif;
 }
 
 #searchField input{
-    width: 85%;
+    width: 100%;
     text-align: center;
     height: 20px;
+    border: 1px solid #FF5555;
+    color: #FF5555;
+	margin: 0px auto;
     margin-top: 5px;
-    border: 1px solid #e74c3c;
-    color: #e74c3c;
+    transition-duration: .5s;
 }
 
 #searchField input:hover{
-    border: 1px solid #8c160a;
-    color: #8c160a;
+    border: 1px solid #ff8e8e;
+    color: #ff8e8e;
+    transition-duration: .5s;
 }
 
 #searchField input:focus{
-     outline:0px;
+    outline:0px;
 }
 
 #back{
-    height: 30px;
-    width: 15%;
-    margin-right: 10px;
+    width: 50px;
     margin-top:-1px;
     border: none;
     background: none;
     font-size: x-large;
-    color: #e74c3c;
+    color: #FF5555;
+    transition-duration: .5s;
 }
 
 #back:hover{
-    color: #8c160a;
+    color: #ff8e8e;
+    transition-duration: .5s;
+}
+
+#button-group{
+    font-family: Raleway;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    display: table;
+
+    button{
+        cursor: pointer;
+        background-color: #FF5555;
+        border: none;
+        width: 150px;
+        color: #FFF;
+        margin: 5px;
+        transition-duration: .5s;
+        height: 30px;
+    }
+    button:hover{
+       background-color: #ff8e8e;
+        transition-duration: .5s;
+    }
+    button:focus{
+        outline:0px;
+    }
+
 }

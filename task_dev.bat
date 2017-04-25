@@ -1,0 +1,2 @@
+call grunt dev
+pause

@@ -3,7 +3,7 @@
  */
 
 angular.module("myApp")
-    .controller("animeCtrl", function ($http, $window, service) {
+    .controller("animeCtrl", function ($http, $window, service, $location) {
 
         var an = this;
 
@@ -41,16 +41,14 @@ angular.module("myApp")
         };
 
 		getanimes = function(){
-			setTimeout(function(){
-				$http.post(
-					"http://cubefusionpapertoys.com/database/anime/getAllAnimes.php",
-					{},
-					config
-				).success(function(response){
-					an.animeList = response.animes;
-					an.loading = false;
-				});
-			}, 1000);
+			$http.post(
+				"http://cubefusionpapertoys.com/database/anime/getAllAnimes.php",
+				{},
+				config
+			).success(function(response){
+				an.animeList = response.animes;
+				an.loading = false;
+			});
 		};
 
 
@@ -60,14 +58,23 @@ angular.module("myApp")
 //__________________________________________________________________________________
 
         an.papertoyList = [];
-        an.animeImageName = "";
+        an.mostDownloadedList = [];
+        an.newestList = [];
+
+        clearLists = function(){
+            an.papertoyList = [];
+            an.mostDownloadedList = [];
+            an.newestList = [];            
+        }
 
         an.getPapertoys = function(a){
             an.loading = true;
             an.mode = 'paper';
-
+//$window.location.href = $window.location.href + "?anime=" + a.id;
             an.searchTextPre = an.searchText;
             an.letterPre = an.letter;
+
+            clearLists();
 
             $http.post(
                 "http://cubefusionpapertoys.com/database/papertoys/getAllPapersByAnime.php",
@@ -77,7 +84,6 @@ angular.module("myApp")
                 config
             ).success(function(response){
                 an.papertoyList = response.papertoys;
-                an.animeImageName = a.imageName;
                 $window.scrollTo(0, 0);
                 an.searchText = "Buscar";
                 an.letter = "all";
@@ -86,13 +92,53 @@ angular.module("myApp")
 
         };
 
+        an.getMostDownloaded = function(a){
+            an.loading = true;
+            an.mode = 'paper';
+
+            clearLists();
+
+            $http.post(
+                "http://cubefusionpapertoys.com/database/papertoys/getMostDownloaded.php",
+                {},
+                config
+            ).success(function(response){
+                an.mostDownloadedList = response.papertoys;
+                an.searchText = "Buscar";
+                an.letter = "all";
+                $window.scrollTo(0, 0);
+                an.loading = false;
+            });
+
+        };
+
+        an.getNewest = function(a){
+            an.loading = true;
+            an.mode = 'paper';
+
+            clearLists();
+
+            $http.post(
+                "http://cubefusionpapertoys.com/database/papertoys/getNewest.php",
+                {},
+                config
+            ).success(function(response){
+                an.newestList = response.papertoys;
+                an.searchText = "Buscar";
+                an.letter = "all";
+                $window.scrollTo(0, 0);
+                an.loading = false;
+            });
+
+        };
+
+
         an.back = function(){
             an.mode = 'anime';
-            an.papertoyList = [];
-            an.animeImageName = "";
+            clearLists();
             $window.scrollTo(0, 0);
-            an.searchText = an.searchTextPre;
-            an.letter = an.letterPre;
+            an.searchText = an.searchTextPre != "" ? an.searchTextPre : "Buscar";
+            an.letter = an.letterPre != "" ? an.letterPre : "all";
         };
 
         an.calculatePaperName = function(name){
@@ -122,11 +168,13 @@ angular.module("myApp")
         }
 
         an.openModel = function(paper){
-            an.currentModel = an.modelRoute + an.animeImageName + "/" + paper.model + ".gif";
+            an.currentModel = an.modelRoute + paper.animeImage + "/" + paper.model + ".gif";
         };
         an.closeModel = function(){
             an.currentModel = null;
         };
+
+
 
 //__________________________________________________________________________________
 //________________    FILTRADO                          ____________________________
@@ -190,28 +238,6 @@ angular.module("myApp")
 		getanimes();
 		
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

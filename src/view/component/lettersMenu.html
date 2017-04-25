@@ -32,6 +32,11 @@
     </div>
 </div>
 <div id="searchField">
-    <button class="glyphicon glyphicon-arrow-left" id="back" ng-click="an.back()" ng-show="an.papertoyList.length > 0" title="Volver a los animes"></button>
+    <button class="glyphicon glyphicon-arrow-left" id="back" ng-click="an.back()" ng-show="an.papertoyList.length > 0 || an.mostDownloadedList.length > 0 || an.newestList.length > 0" title="Volver a los animes"></button>
     <input type="text" ng-model="an.searchText" ng-click="an.reset()" ng-blur="an.searchTextBlur()">
+</div>
+<div id="button-group">
+    <button ng-click="an.getMostDownloaded()" ng-show="an.mostDownloadedList.length == 0"><span class="glyphicon glyphicon-plus"></span> Descargados</button> 
+    <button ng-click="an.getNewest()" ng-show="an.newestList.length == 0"><span class="glyphicon glyphicon-plus"></span> Recientes</button> 
+    <!--<button ng-click="an.getMostDownloaded()" ng-show="an.mostDownloadedList.length == 0">Destacados</button> -->
 </div>

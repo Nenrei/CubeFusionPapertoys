@@ -67,9 +67,72 @@ a{
     text-align:center !important;
     min-height: 600px;
     overflow: auto;
+
+    a:hover{
+        text-decoration: none;   
+    }
 }
 
+
 #loading{
-    margin-left: calc(50% - 75px);
-    width: 150px;
+    position: fixed;
+    top: 0px;
+    background-color: rgba(255,255,255,0);
+    z-index: 2;
+    overflow: auto;
+    height: 100%;
+    width: 100%;   
+
+    img{
+        left: calc(50% - 75px);
+        width: 150px;
+        top: calc(30% - 75px);
+        position: fixed;
+    }
+}
+
+@media only screen and (max-width: 768px){
+
+    .imagen {
+        width: 140px;
+        height: 140px;
+
+        >img{
+            width: 140px;
+            height: 85px;
+        }
+
+        #testo{
+            margin-top: 85px;
+            background-color: rgba(232, 76, 61, 1);
+            width: 140px;
+
+            #nombrepaper{
+                width: 85px;
+            }
+        }
+
+        &:hover #testo{
+            margin-top: 85px;
+        }
+    }
+
+
+}
+
+@media only screen and (max-width: 500px){
+
+    .imagen {
+        width: 110px;
+
+        >img{
+            margin-left: -15px;
+        }
+
+        #testo{
+            width: 110px;
+        }
+    }
+
+
 }
