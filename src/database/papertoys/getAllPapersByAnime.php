@@ -27,7 +27,8 @@ $sql = "
     anime a
   WHERE
     a.id = p.anime AND
-    p.anime = " . $idAnime . "
+    p.anime = " . $idAnime . " AND 
+    p.indShow = 1
   ORDER BY
     p.name, p.paperOrder";
 

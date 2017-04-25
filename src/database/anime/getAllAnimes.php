@@ -23,10 +23,12 @@ $sql = "
     (
       SELECT COUNT( p.id )
       FROM papertoy p
-      WHERE p.anime = a.id
+      WHERE p.anime = a.id and p.indShow = 1
     ) AS paperCount
   FROM
     anime a
+  WHERE 
+    a.indShow = 1
   ORDER BY
     a.name
  ";
